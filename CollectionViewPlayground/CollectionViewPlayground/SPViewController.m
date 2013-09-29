@@ -42,4 +42,17 @@ static NSString *const kCellIdentifier = @"SPCollectionViewCellId";
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Collection view data source
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.colorArray.count;
+}
+
+-(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
+    
+    cell.backgroundColor = self.colorArray[indexPath.item];
+    
+    return cell;
+}
+
 @end
