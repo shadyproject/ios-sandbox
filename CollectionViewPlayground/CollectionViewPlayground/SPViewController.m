@@ -8,16 +8,32 @@
 
 #import "SPViewController.h"
 
-@interface SPViewController ()
+static NSString *const kCellIdentifier = @"SPCollectionViewCellId";
 
+@interface SPViewController ()
+@property NSArray *colorArray;
 @end
 
 @implementation SPViewController
 
-- (void)viewDidLoad
-{
+-(void)viewDidLoad{
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
+    
+    const NSInteger numColors = 100;
+    
+    NSMutableArray *temp = [@[] mutableCopy];
+    
+    for (int i = 0; i < numColors; i +=1) {
+        CGFloat red = (arc4random() % 255) / 255.0f;
+        CGFloat green = (arc4random() % 255) / 255.0f;
+        CGFloat blue = (arc4random() % 255) / 255.0f;
+        
+        [temp addObject:[UIColor colorWithRed:red green:green blue:blue alpha:1.0f]];
+    }
+    
+    self.colorArray = [NSArray arrayWithArray:temp];
 }
 
 - (void)didReceiveMemoryWarning
