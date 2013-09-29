@@ -14,16 +14,17 @@
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // Override point for customization after application launch.
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    SPViewController *vc = [[SPViewController alloc] initWithCollectionViewLayout:layout];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.sectionInset = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
+    layout.itemSize = CGSizeMake(20,50);
     
+    SPViewController *vc = [[SPViewController alloc] initWithCollectionViewLayout:layout];
     [self.window setRootViewController:vc];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
-    // Override point for customization after application launch.
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
