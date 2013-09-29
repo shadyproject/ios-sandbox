@@ -19,6 +19,8 @@ static NSString *const kCellIdentifier = @"SPCollectionViewCellId";
 -(void)viewDidLoad{
     [super viewDidLoad];
     
+    self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
     
     const NSInteger numColors = 100;
