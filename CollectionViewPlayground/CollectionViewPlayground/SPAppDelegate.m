@@ -16,8 +16,9 @@
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.sectionInset = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
-    layout.itemSize = CGSizeMake(20,50);
+    //layout.sectionInset = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
+    //layout.itemSize = CGSizeMake(20,50);
+    layout.itemSize = [[UIScreen mainScreen] bounds].size;
     
     SPViewController *vc = [[SPViewController alloc] initWithCollectionViewLayout:layout];
     [self.window setRootViewController:vc];
