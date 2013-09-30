@@ -15,13 +15,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    //layout.sectionInset = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
-    //layout.itemSize = CGSizeMake(20,50);
-    layout.itemSize = [[UIScreen mainScreen] bounds].size;
     
     SPViewController *vc = [[SPViewController alloc] initWithCollectionViewLayout:layout];
-    [self.window setRootViewController:vc];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    nav.navigationBar.barStyle = UIBarStyleDefault;
+    nav.navigationBar.translucent = YES;
+    
+    [self.window setRootViewController:nav];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
