@@ -54,7 +54,7 @@ static NSString *const kCellIdentifier = @"SPCollectionViewCellId";
     layout.minimumInteritemSpacing = 40.0f;
     layout.minimumLineSpacing = 40.0f;
     layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-    layout.itemSize = CGSizeMake(200, 200);
+    layout.itemSize = CGSizeMake(100, 100);
 }
 
 -(void)configureCollectionView{
@@ -76,14 +76,14 @@ static NSString *const kCellIdentifier = @"SPCollectionViewCellId";
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
+    SPCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
     
     [self configureCell:cell forItemAtIndexPath:indexPath];
     
     return cell;
 }
 
--(void)configureCell:(UICollectionViewCell*)cell forItemAtIndexPath:(NSIndexPath*)indexPath{
+-(void)configureCell:(SPCollectionViewCell*)cell forItemAtIndexPath:(NSIndexPath*)indexPath{
     cell.text = [self.dateFormatter stringFromDate:self.dates[indexPath.row]];
 }
 
