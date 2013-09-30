@@ -22,6 +22,7 @@
 		2DBB4BF917F8CAD70036F6A9 /* CollectionViewPlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB4BF817F8CAD70036F6A9 /* CollectionViewPlaygroundTests.m */; };
 		2DBB4C0417F8CB710036F6A9 /* SPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DBB4C0317F8CB710036F6A9 /* SPViewController.xib */; };
 		2DDBD74D17F93B4200974498 /* SPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDBD74C17F93B4200974498 /* SPCollectionViewCell.m */; };
+		2DDBD75017F93C9F00974498 /* UIColor+RandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDBD74F17F93C9F00974498 /* UIColor+RandomColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		2DBB4C0317F8CB710036F6A9 /* SPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPViewController.xib; sourceTree = "<group>"; };
 		2DDBD74B17F93B4200974498 /* SPCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCollectionViewCell.h; sourceTree = "<group>"; };
 		2DDBD74C17F93B4200974498 /* SPCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCollectionViewCell.m; sourceTree = "<group>"; };
+		2DDBD74E17F93C9F00974498 /* UIColor+RandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RandomColor.h"; sourceTree = "<group>"; };
+		2DDBD74F17F93C9F00974498 /* UIColor+RandomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RandomColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				2DBB4BD117F8CAD70036F6A9 /* Supporting Files */,
 				2DDBD74B17F93B4200974498 /* SPCollectionViewCell.h */,
 				2DDBD74C17F93B4200974498 /* SPCollectionViewCell.m */,
+				2DDBD74E17F93C9F00974498 /* UIColor+RandomColor.h */,
+				2DDBD74F17F93C9F00974498 /* UIColor+RandomColor.m */,
 			);
 			path = CollectionViewPlayground;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DBB4BD717F8CAD70036F6A9 /* main.m in Sources */,
+				2DDBD75017F93C9F00974498 /* UIColor+RandomColor.m in Sources */,
 				2DBB4BE417F8CAD70036F6A9 /* SPViewController.m in Sources */,
 				2DBB4BDB17F8CAD70036F6A9 /* SPAppDelegate.m in Sources */,
 				2DDBD74D17F93B4200974498 /* SPCollectionViewCell.m in Sources */,
