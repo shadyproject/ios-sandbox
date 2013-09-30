@@ -7,11 +7,13 @@
 //
 
 #import "SPViewController.h"
+#import "SPCollectionViewCell.h"
 
 static NSString *const kCellIdentifier = @"SPCollectionViewCellId";
 
 @interface SPViewController ()
-@property NSArray *colorArray;
+@property NSMutableArray *dates;
+@property NSDateFormatter *dateFormatter;
 @end
 
 @implementation SPViewController
@@ -19,23 +21,13 @@ static NSString *const kCellIdentifier = @"SPCollectionViewCellId";
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    self.dates = [@[] mutableCopy];
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setDateFormat:[NSDateFormatter dateFormatFromTemplate:@"HH:mm:ss" options:0 locale:[NSLocale currentLocale]]];
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
-    
-    const NSInteger numColors = 100;
-    
-    NSMutableArray *temp = [@[] mutableCopy];
-    
-    for (int i = 0; i < numColors; i +=1) {
-        CGFloat red = (arc4random() % 255) / 255.0f;
-        CGFloat green = (arc4random() % 255) / 255.0f;
-        CGFloat blue = (arc4random() % 255) / 255.0f;
-        
-        [temp addObject:[UIColor colorWithRed:red green:green blue:blue alpha:1.0f]];
-    }
-    
-    self.colorArray = [NSArray arrayWithArray:temp];
+    [self configureLayout];
+    [self configureCollectionView];
+    [self configureNavigationItem];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,17 +36,55 @@ static NSString *const kCellIdentifier = @"SPCollectionViewCellId";
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)tappedAddButton:(id)sender{
+    [self addNewDate];
+}
+
+-(void)addNewDate{
+    [self.collectionView performBatchUpdates:^{
+        NSDate *newDate = [NSDate date];
+        [self.dates insertObject:newDate atIndex:0];
+        [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
+    } completion:nil];
+}
+
+-(void)configureLayout{
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
+    
+    layout.minimumInteritemSpacing = 40.0f;
+    layout.minimumLineSpacing = 40.0f;
+    layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    layout.itemSize = CGSizeMake(200, 200);
+}
+
+-(void)configureCollectionView{
+    [self.collectionView registerClass:[SPCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
+    self.collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+}
+
+-(void)configureNavigationItem{
+    UIBarButtonItem *addButton =
+    [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tappedAddButton:)];
+    
+    self.navigationItem.rightBarButtonItem = addButton;
+    self.navigationItem.title = @"List of Dates";
+}
+
 #pragma mark - Collection view data source
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.colorArray.count;
+    return self.dates.count;
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
     
-    cell.backgroundColor = self.colorArray[indexPath.item];
+    [self configureCell:cell forItemAtIndexPath:indexPath];
     
     return cell;
+}
+
+-(void)configureCell:(UICollectionViewCell*)cell forItemAtIndexPath:(NSIndexPath*)indexPath{
+    cell.text = [self.dateFormatter stringFromDate:self.dates[indexPath.row]];
 }
 
 #pragma mark - UIScrollView delegates
