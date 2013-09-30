@@ -21,6 +21,7 @@
 		2DBB4BF717F8CAD70036F6A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DBB4BF517F8CAD70036F6A9 /* InfoPlist.strings */; };
 		2DBB4BF917F8CAD70036F6A9 /* CollectionViewPlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB4BF817F8CAD70036F6A9 /* CollectionViewPlaygroundTests.m */; };
 		2DBB4C0417F8CB710036F6A9 /* SPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DBB4C0317F8CB710036F6A9 /* SPViewController.xib */; };
+		2DDBD74D17F93B4200974498 /* SPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDBD74C17F93B4200974498 /* SPCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		2DBB4BF617F8CAD70036F6A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2DBB4BF817F8CAD70036F6A9 /* CollectionViewPlaygroundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewPlaygroundTests.m; sourceTree = "<group>"; };
 		2DBB4C0317F8CB710036F6A9 /* SPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPViewController.xib; sourceTree = "<group>"; };
+		2DDBD74B17F93B4200974498 /* SPCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCollectionViewCell.h; sourceTree = "<group>"; };
+		2DDBD74C17F93B4200974498 /* SPCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				2DBB4BE317F8CAD70036F6A9 /* SPViewController.m */,
 				2DBB4BE517F8CAD70036F6A9 /* Images.xcassets */,
 				2DBB4BD117F8CAD70036F6A9 /* Supporting Files */,
+				2DDBD74B17F93B4200974498 /* SPCollectionViewCell.h */,
+				2DDBD74C17F93B4200974498 /* SPCollectionViewCell.m */,
 			);
 			path = CollectionViewPlayground;
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 				2DBB4BD717F8CAD70036F6A9 /* main.m in Sources */,
 				2DBB4BE417F8CAD70036F6A9 /* SPViewController.m in Sources */,
 				2DBB4BDB17F8CAD70036F6A9 /* SPAppDelegate.m in Sources */,
+				2DDBD74D17F93B4200974498 /* SPCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +469,7 @@
 				2DBB4BFE17F8CAD70036F6A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2DBB4BFF17F8CAD70036F6A9 /* Build configuration list for PBXNativeTarget "CollectionViewPlaygroundTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +478,7 @@
 				2DBB4C0117F8CAD70036F6A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
