@@ -29,6 +29,18 @@
     return self;
 }
 
+-(void)prepareForReuse{
+    [super prepareForReuse];
+    
+    self.text = @"";
+}
+
+-(void)setText:(NSString *)text{
+    self.text = [text copy];
+    
+    self.textLabel.text = self.text;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
