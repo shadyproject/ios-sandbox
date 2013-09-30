@@ -57,4 +57,25 @@ static NSString *const kCellIdentifier = @"SPCollectionViewCellId";
     return cell;
 }
 
+#pragma mark - UIScrollView delegates
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"Scroll View did Scroll");
+    NSLog(@"Content Offset: X:%f Y:%f", scrollView.contentOffset.x, scrollView.contentOffset.y);
+}
+
+-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    NSLog(@"scrollViewWillBeginDecelerating");
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    NSLog(@"scrollViewWillBeginDraggin");
+}
+
+-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+    NSLog(@"scrollViewWillEndDragging");
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    NSLog(@"scrollViewDidEndDragging willDecelerate:%@", (decelerate ? @"YES" : @"NO"));
+}
 @end
