@@ -36,7 +36,7 @@
 }
 
 -(void)setText:(NSString *)text{
-    self.text = [text copy];
+    _text = [text copy];
     
     self.textLabel.text = self.text;
 }
