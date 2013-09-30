@@ -7,14 +7,24 @@
 //
 
 #import "SPCollectionViewCell.h"
+#import "UIColor+RandomColor.h"
+
+@interface SPCollectionViewCell ()
+@property (nonatomic, strong) UILabel *textLabel;
+@end
 
 @implementation SPCollectionViewCell
 
-- (id)initWithFrame:(CGRect)frame
-{
+-(id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        self.backgroundColor = [UIColor randomColor];
+        
+        self.textLabel = [[UILabel alloc] initWithFrame:self.bounds];
+        self.textLabel.textAlignment = NSTextAlignmentCenter;
+        self.textLabel.font = [UIFont boldSystemFontOfSize:20];
+        
+        [self.contentView addSubview:self.textLabel];
     }
     return self;
 }

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SPCollectionViewCell : UICollectionViewCell
-
+@property (nonatomic, copy) NSString *text;
 @end
